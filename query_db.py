@@ -2,15 +2,15 @@ import sqlite3
 
 conn = sqlite3.connect("data/database.sqlite")
 conn.row_factory = sqlite3.Row
-cursor = conn.cursor()
+c = conn.cursor()
 
-cursor.execute("SELECT * FROM Country")
-rows = cursor.fetchall()
+# c.execute("SELECT * FROM League")
+# rows = c.fetchall()
+# # print(rows)
+# for row in rows:
+#     print(dict(row))
 
-for row in rows:
-    print(f"{row['id']} - {row['name']}")
+c.execute("SELECT * FROM League WHERE id = 1")
 
-# cursor.execute("SELECT * FROM Country WHERE id = 7809")
-# row = cursor.fetchone()
-
-# print(dict(row))
+row = c.fetchone()
+print(dict(row))
